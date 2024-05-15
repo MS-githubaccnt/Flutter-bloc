@@ -9,7 +9,7 @@ Widget bottomNavBar=BlocBuilder<BottomNavBloc,int>(
             currentIndex: state,
             onTap:(index){
               BlocProvider.of<BottomNavBloc>(context).add(screenChange(index));
-              Navigator.of(context).pushNamed((state==0)?"/counter":"/conversion");
+              //Navigator.of(context).pushNamed((state==0)?"/counter":"/conversion");
             },
             items: [
             BottomNavigationBarItem(icon: Icon(Icons.one_k_outlined),label:"First_Page"),

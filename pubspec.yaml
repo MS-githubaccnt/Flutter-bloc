@@ -39,6 +39,8 @@ dependencies:
   flutter_bloc: ^8.1.5
   binary: ^3.0.1
   toggle_switch: ^2.3.0
+  b: ^0.2.0
+  any_base: ^2.0.0
 
 dev_dependencies:
   flutter_test:

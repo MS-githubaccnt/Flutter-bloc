@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc_app_1/presentation/bottom_navbar/bloc/bottom_navbar_bloc.dart';
+import 'package:flutter_bloc_app_1/presentation/conversion_page/bloc/conversion_page_bloc.dart';
 import 'package:flutter_bloc_app_1/presentation/conversion_page/conversion_page.dart';
 import "package:flutter_bloc_app_1/presentation/counter_page/counter_page.dart";
 import 'package:flutter_bloc_app_1/presentation/counter_page/bloc/counter_page_bloc.dart';
 import "package:flutter_bloc/flutter_bloc.dart";
 
 //take care of cose subscription and bloc.close
-//multiple taps and need for plus to change 
+//multiple taps 
+//unconverntional navigation??/
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,8 +34,11 @@ class MyApp extends StatelessWidget {
       home:MultiBlocProvider(
         providers: [
         BlocProvider<CounterBloc>(create: (context) =>CounterBloc()),
-        BlocProvider<BottomNavBloc>(create:(context)=>BottomNavBloc())],
-      child: counter(),)
+        BlocProvider<BottomNavBloc>(create:(context)=>BottomNavBloc()),
+        BlocProvider<ConversionBloc>(create: (context)=>ConversionBloc())],
+      child: BlocBuilder<BottomNavBloc,int>(
+        builder:(context,state)=>(state==0)?counter():conversion(),
+      ),)
       
     );
   }
